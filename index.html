@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday ❤️</title>  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdce5, #fff0f5, #ffe4ec);
+      overflow-x: hidden;
+      color: #4b4453;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.3);
+      animation: float 10s linear infinite;
+      font-size: 24px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border-radius: 35px;
+    }
+
+    .hero-card {
+      max-width: 750px;
+      padding: 50px 35px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      color: #ff4f81;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .hero p {
+      margin-top: 25px;
+      line-height: 1.9;
+      font-size: 18px;
+    }
+
+    .btn {
+      margin-top: 35px;
+      display: inline-block;
+      padding: 16px 36px;
+      border-radius: 999px;
+      background: linear-gradient(to right,#ff6b9a,#ff4f81);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.4s;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+    }
+
+    .surprise {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+    }
+
+    .orb {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: 1s;
+      animation: pulse 4s infinite;
+    }
+
+    .orb::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: rgba(255,105,180,0.3);
+      filter: blur(40px);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .orb:hover {
+      transform: rotate(8deg) scale(1.08);
+    }
+
+    .orb h2 {
+      color: #ff4f81;
+      text-align: center;
+      padding: 20px;
+      font-size: 30px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .memory-container {
+      display: none;
+      margin-top: 80px;
+      width: 100%;
+      max-width: 1200px;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 30px;
+    }
+
+    .card {
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    .card-content h3 {
+      color: #ff4f81;
+      margin-bottom: 15px;
+      font-size: 28px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .card-content p {
+      line-height: 1.8;
+    }
+
+    .section {
+      padding: 120px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 55px;
+      color: #ff4f81;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .love-grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+
+    .love-card {
+      padding: 35px 25px;
+      transition: 0.5s;
+    }
+
+    .love-card:hover {
+      transform: scale(1.05);
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 60px auto 0;
+      border-left: 3px solid #ff8fb1;
+      padding-left: 30px;
+      text-align: left;
+    }
+
+    .timeline-item {
+      margin-bottom: 35px;
+      padding: 25px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: #ff4f81;
+      border-radius: 50%;
+      position: absolute;
+      left: -41px;
+      top: 35px;
+    }
+
+    .final {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(to bottom,#ffb6c1,#111);
+      color: white;
+    }
+
+    .final h2 {
+      font-size: 60px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .final p {
+      margin-top: 25px;
+      font-size: 24px;
+      line-height: 1.8;
+    }
+
+    @media(max-width:768px){
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .section h2,
+      .final h2 {
+        font-size: 40px;
+      }
+    }
+  </style></head>
+<body>  <div class="hearts"></div>  <section class="hero">
+    <div class="glass hero-card">
+      <h1>Happy Birthday ❤️</h1><p>
+    Every moment with you feels magical.<br>
+    This little website contains memories,
+    emotions and pieces of my heart.
+  </p>
+
+  <a href="#surprise" class="btn">Open Your Surprise ✨</a>
+</div>
+
+  </section>  <section class="surprise" id="surprise">
+    <div class="orb glass" onclick="openMemories()">
+      <h2>
+        Tap To Open<br>
+        Your Surprise 💖
+      </h2>
+    </div><div class="memory-container" id="memories">
+
+  <div class="card glass">
+    <img src="images/childhood.jpg">
+
+    <div class="card-content">
+      <h3>Little You ❤️</h3>
+
+      <p>
+        Little did this cute girl know...
+        she would become my favorite person in the world.
+      </p>
+    </div>
+  </div>
+
+  <div class="card glass">
+    <img src="images/herphoto.jpg">
+
+    <div class="card-content">
+      <h3>My Feelings For You ✨</h3>
+
+      <p>
+        Before you, life was normal.
+        But somehow you made everything softer,
+        brighter and more meaningful.
+        Your smile calms my worst days.
+        Your voice feels like home.
+      </p>
+    </div>
+  </div>
+
+  <div class="card glass">
+    <img src="images/memory.jpg">
+
+    <div class="card-content">
+      <h3>Our Favorite Memory 📸</h3>
+
+      <p>
+        Some moments become memories.
+        But moments with you become emotions
+        I never want to lose.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+  </section>  <section class="section">
+    <h2>Things I Love About You</h2><div class="love-grid">
+  <div class="love-card glass">Your smile fixes my worst days ❤️</div>
+  <div class="love-card glass">You make ordinary moments magical ✨</div>
+  <div class="love-card glass">Your laugh is my favorite sound</div>
+  <div class="love-card glass">You feel like home 💖</div>
+  <div class="love-card glass">You are my favorite notification 💌</div>
+  <div class="love-card glass">I still smile at your texts 🥺</div>
+</div>
+
+  </section>  <section class="section">
+    <h2>Our Journey Together</h2><div class="timeline">
+  <div class="timeline-item glass">The first time we talked ❤️</div>
+  <div class="timeline-item glass">The first late-night conversation 🌙</div>
+  <div class="timeline-item glass">The first photo together 📸</div>
+  <div class="timeline-item glass">The moment I realized I love you ✨</div>
+  <div class="timeline-item glass">Still choosing you every single day 💖</div>
+</div>
+
+  </section>  <section class="final">
+    <div>
+      <h2>
+        And after everything...
+      </h2><p>
+    I would still choose you.<br>
+    Every single time ❤️
+  </p>
+</div>
+
+  </section>  <script>
+    function openMemories() {
+      const memories = document.getElementById('memories');
+      memories.style.display = 'grid';
+      memories.scrollIntoView({behavior:'smooth'});
+    }
+
+    const hearts = document.querySelector('.hearts');
+
+    for(let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 8) + 's';
+      heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+      hearts.appendChild(heart);
+    }
+  </script></body>
+</html>
